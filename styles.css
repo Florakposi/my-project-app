@@ -1,0 +1,88 @@
+h1 {
+  margin: 20px auto 0 auto;
+}
+
+h2 {
+  font-size: 100px;
+  margin-top: 30px;
+}
+
+p {
+  text-align: right;
+  bottom: 80px;
+}
+
+hr {
+  bottom: 50px;
+}
+
+p,
+hr {
+  position: relative;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #200f21;
+  background: #fff;
+}
+
+section {
+    border: 1px solid rgba(93, 205, 241, 0);
+    box-shadow: 2px 2px 11px rgba(0, 0, 0, 0.2);
+    padding: 20px 50px;
+    margin-top: 30px;
+}
+
+footer {
+  margin-left: 40px;
+}
+
+input {
+  margin-left: 150px;
+  width: 70%;
+}
+
+.search-btn {
+  border: none;
+  background: transparent;
+}
+
+.more-btn {
+  display: block;
+  margin: 40px auto 10px auto;
+  border: 1px solid rgba(33, 37, 41, 0.5);
+  border-radius: 20px;
+  font-size: 13px;
+  background: transparent;
+}
+
+.search-btn:hover {
+  color: #fff;
+}
+
+.more-btn:hover {
+  background: #fff;
+}
+
+.row {
+  margin-left: 50px;
+}
+
+.icon {
+    font-size: 30px;
+}
+
+.container {
+  width: 50%;
+  margin: 50px;
+  padding: 30px 50px 50px;
+  border: 1px solid rgba(93, 205, 241, 0);
+  border-radius: 20px;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(215, 223, 252) 0%,
+    rgb(255, 255, 255) 0%,
+    rgb(215, 223, 252) 84%
+  );
+}
