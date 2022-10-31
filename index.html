@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Forecast</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/1ad43726a7.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <span class="bars">
+        <i class="fa-solid fa-bars"></i>
+      </span>
+
+      <form class="search-sec" id="search-sec">
+        <input
+          class="”form-control”"
+          type="”text”"
+          placeholder="Search"
+          autofocus="on"
+          autocomplete="off"
+          id="search-input"
+        />
+        <button class="search-btn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <section>
+        <h1>
+          <i class="fa-solid fa-location-dot"></i>
+          <span id="city"> Abuja </span>
+        </h1>
+        <footer id="date">Sun, 2 October</footer>
+        <h2>
+          <i class="fa-solid fa-cloud-sun"></i>
+          <span id="temperature">26</span>°
+        </h2>
+        <p>
+          <span id="description"> partly cloudy </span>
+          <br />
+          Wind:
+          <span id="wind">1</span>
+          km/h
+          <br />
+          Humidity:
+          <span id="humidity">64</span>
+          %
+        </p>
+
+        <hr />
+
+        <div class="row">
+          <div class="col">
+            MON
+            <br />
+            <span class="icon">
+              <i class="fa-solid fa-cloud-sun"></i>
+            </span>
+            <br />
+            25°
+          </div>
+          <div class="col">
+            TUE
+            <br />
+            <span class="icon">
+              <i class="fa-solid fa-cloud-rain"></i>
+            </span>
+            <br />
+            24°
+          </div>
+          <div class="col">
+            WED
+            <br />
+            <span class="icon">
+              <i class="fa-solid fa-cloud-sun"></i>
+            </span>
+            <br />
+            23°
+          </div>
+          <div class="col">
+            THU
+            <br />
+            <span class="icon">
+              <i class="fa-solid fa-cloud-bolt"></i>
+            </span>
+            <br />
+            23°
+          </div>
+          <div class="col">
+            FRI
+            <br />
+            <span class="icon">
+              <i class="fa-solid fa-cloud-showers-heavy"></i>
+            </span>
+            <br />
+            20°
+          </div>
+        </div>
+
+        <button class="more-btn" id="location-btn">Location</button>
+      </section>
+    </div>
+    <script src="src/api.js"></script>
+  </body>
+</html>
