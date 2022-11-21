@@ -27,14 +27,10 @@
   </head>
   <body>
     <div class="container">
-      <span class="bars">
-        <i class="fa-solid fa-bars"></i>
-      </span>
-
       <form class="search-sec" id="search-sec">
         <input
-          class="”form-control”"
-          type="”text”"
+          class="form-control"
+          type="text"
           placeholder="Search"
           autofocus="on"
           autocomplete="off"
@@ -51,8 +47,18 @@
         </h1>
         <footer id="date">Sun, 2 October</footer>
         <h2>
-          <i class="fa-solid fa-cloud-sun"></i>
-          <span id="temperature">26</span>°
+          <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+            alt="clear"
+            id="current-weather-icon"
+            class="float-left"
+          />
+          <span class="temperature-value" id="temperature">26</span>
+          <span class="units">
+            <a href="#" id="celsius" class="active">°C</a>
+             | 
+            <a href="#" id="fahrenheit">°F</a>
+          </span>
         </h2>
         <p>
           <span id="description"> partly cloudy </span>

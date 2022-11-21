@@ -63,7 +63,11 @@ function showWeather(response) {
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
+
+  celsiusValue = response.data.temperature.current;
 }
+
+let celsiusValue = null;
 
 function searchCity(city) {
   let apiKey = "5ed3b347f2ec800oa45b8f8b601dtf4a";
@@ -96,3 +100,26 @@ function currentLocation(event) {
 
 let locationBtn = document.querySelector("#location-btn");
 locationBtn.addEventListener("click", currentLocation);
+
+function showFahrenheit(event) {
+  event.preventDefault();
+  let mainTemp = document.querySelector("#temperature");
+  fahrenheit.classList.add("active");
+  celsius.classList.remove("active");
+  let fahrenheitTemp = (celsiusValue * 9) / 5 + 32;
+  mainTemp.innerHTML = Math.round(fahrenheitTemp);
+}
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", showFahrenheit);
+
+function showCelsius(event) {
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
+  event.preventDefault();
+  let mainTemp = document.querySelector("#temperature");
+  mainTemp.innerHTML = Math.round(celsiusValue);
+}
+
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", showCelsius);
