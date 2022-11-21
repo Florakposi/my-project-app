@@ -49,22 +49,28 @@ date.innerHTML = formatDate(today);
 
 function showWeather(response) {
   let findCity = document.querySelector("#city");
-  findCity.innerHTML = response.data.name;
+  findCity.innerHTML = response.data.city;
   let findTemp = document.querySelector("#temperature");
-  findTemp.innerHTML = Math.round(response.data.main.temp);
+  findTemp.innerHTML = Math.round(response.data.temperature.current);
   let humidity = document.querySelector("#humidity");
-  humidity.innerHTML = response.data.main.humidity;
+  humidity.innerHTML = response.data.temperature.humidity;
   let wind = document.querySelector("#wind");
   wind.innerHTML = Math.round(response.data.wind.speed);
   let description = document.querySelector("#description");
-  description.innerHTML = response.data.weather[0].main;
+  description.innerHTML = response.data.condition.description;
+  let icon = document.querySelector("#current-weather-icon");
+  icon.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
 }
 
 function searchCity(city) {
-  let apiKey = "2513f3c728b1b5ff4f4347e1a6af22b8";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiKey = "5ed3b347f2ec800oa45b8f8b601dtf4a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
 }
+
 searchCity("Abuja");
 
 function submitHere(event) {
@@ -77,9 +83,10 @@ let searchSec = document.querySelector("#search-sec");
 searchSec.addEventListener("submit", submitHere);
 
 function getLocation(position) {
-  let apiKey = "2513f3c728b1b5ff4f4347e1a6af22b8";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  let apiKey = "5ed3b347f2ec800oa45b8f8b601dtf4a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
+  
 }
 
 function currentLocation(event) {
