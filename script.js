@@ -90,7 +90,6 @@ function getLocation(position) {
   let apiKey = "5ed3b347f2ec800oa45b8f8b601dtf4a";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
-  
 }
 
 function currentLocation(event) {
