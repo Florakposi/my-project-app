@@ -65,6 +65,8 @@ function showWeather(response) {
   );
 
   celsiusValue = response.data.temperature.current;
+
+  getForecast(response.data.coordinates);
 }
 
 let celsiusValue = null;
@@ -76,6 +78,12 @@ function searchCity(city) {
 }
 
 searchCity("Abuja");
+
+function getForecast(coordinates) {
+  let apiKey = "5ed3b347f2ec800oa45b8f8b601dtf4a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
+}
 
 function submitHere(event) {
   event.preventDefault();
@@ -122,3 +130,46 @@ function showCelsius(event) {
 
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", showCelsius);
+
+function changeDay(date) {
+  let currentDate = new Date(date * 1000);
+  let day = currentDate.getDay();
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+  return days[day];
+}
+
+function showForecast(response) {
+  let dailyForecast = response.data.daily;
+
+  let forcast = document.querySelector("#weather-forcast");
+
+  let forecastHTML = `<div class="row">`;
+
+  dailyForecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+        <div class="col-2">
+              ${changeDay(forecastDay.time)}
+              <br />
+              <span class="icon">
+                <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+              forecastDay.condition.icon
+            }.png"
+            alt=""
+            id="daily-forecast-icon"
+            class="float-center"
+          />
+              </span>
+              <br />
+              ${Math.round(forecastDay.temperature.day)}°
+        </div>
+    `;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forcast.innerHTML = forecastHTML;
+}

@@ -66,9 +66,8 @@ input {
   background: #fff;
 }
 
-
 .row {
-  margin-left: 50px;
+  margin-left: 0px;
 }
 
 .icon {
@@ -103,6 +102,10 @@ input {
   text-decoration: underline;
 }
 
+#description {
+  text-transform: capitalize;
+}
+
 .temperature-value {
   right: 40px;
 }
@@ -119,4 +122,8 @@ input {
     rgb(255, 255, 255) 0%,
     rgb(215, 223, 252) 84%
   );
+}
+
+.weather-forcast {
+  text-align: center;
 }
