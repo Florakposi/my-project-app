@@ -17,7 +17,7 @@ hr {
 }
 
 p,
-hr, .search-btn, .units, .temperature-value {
+hr, .search-btn, .temperature-value, .degree {
   position: relative;
 }
 
@@ -70,6 +70,10 @@ input {
   margin-left: 0px;
 }
 
+.degree {
+  right: 70px;
+}
+
 .icon {
   font-size: 30px;
 }
@@ -83,23 +87,9 @@ input {
   margin-left: 50px;
 }
 
-.units {
-  font-size: 20px;
-  bottom: 50px;
-  right: 60px;
-}
-
 .active {
   color: #200f21;
   cursor: default;
-}
-
-#fahrenheit, #celsius {
-  text-decoration: none;
-}
-
-#fahrenheit:hover {
-  text-decoration: underline;
 }
 
 #description {

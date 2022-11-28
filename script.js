@@ -69,8 +69,6 @@ function showWeather(response) {
   getForecast(response.data.coordinates);
 }
 
-let celsiusValue = null;
-
 function searchCity(city) {
   let apiKey = "5ed3b347f2ec800oa45b8f8b601dtf4a";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
@@ -107,29 +105,6 @@ function currentLocation(event) {
 
 let locationBtn = document.querySelector("#location-btn");
 locationBtn.addEventListener("click", currentLocation);
-
-function showFahrenheit(event) {
-  event.preventDefault();
-  let mainTemp = document.querySelector("#temperature");
-  fahrenheit.classList.add("active");
-  celsius.classList.remove("active");
-  let fahrenheitTemp = (celsiusValue * 9) / 5 + 32;
-  mainTemp.innerHTML = Math.round(fahrenheitTemp);
-}
-
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", showFahrenheit);
-
-function showCelsius(event) {
-  celsius.classList.add("active");
-  fahrenheit.classList.remove("active");
-  event.preventDefault();
-  let mainTemp = document.querySelector("#temperature");
-  mainTemp.innerHTML = Math.round(celsiusValue);
-}
-
-let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click", showCelsius);
 
 function changeDay(date) {
   let currentDate = new Date(date * 1000);
