@@ -93,8 +93,8 @@ let searchSec = document.querySelector("#search-sec");
 searchSec.addEventListener("submit", submitHere);
 
 function getLocation(position) {
-  let apiKey = "62bc298785543e137bc6756e514eb1c3";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  let apiKey = "5ed3b347f2ec800oa45b8f8b601dtf4a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
 }
 
@@ -109,7 +109,15 @@ locationBtn.addEventListener("click", currentLocation);
 function changeDay(date) {
   let currentDate = new Date(date * 1000);
   let day = currentDate.getDay();
-  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  let days = [
+    "SUN",
+    "MON",
+    "TUE",
+    "WED",
+    "THU",
+    "FRI",
+    "SAT",
+  ];
 
   return days[day];
 }
@@ -120,20 +128,18 @@ function showForecast(response) {
   let forcast = document.querySelector("#weather-forcast");
 
   let forecastHTML = `<div class="row">`;
-
+ 
   dailyForecast.forEach(function (forecastDay, index) {
     if (index < 6) {
-      forecastHTML =
-        forecastHTML +
-        `
+    forecastHTML =
+      forecastHTML +
+      `
         <div class="col-2">
               ${changeDay(forecastDay.time)}
               <br />
               <span class="icon">
                 <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
-              forecastDay.condition.icon
-            }.png"
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png"
             alt=""
             id="daily-forecast-icon"
             class="float-center"
@@ -143,7 +149,7 @@ function showForecast(response) {
               ${Math.round(forecastDay.temperature.day)}°
         </div>
     `;
-    }
+  }
   });
   forecastHTML = forecastHTML + `</div>`;
   forcast.innerHTML = forecastHTML;
