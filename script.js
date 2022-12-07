@@ -94,7 +94,7 @@ searchSec.addEventListener("submit", submitHere);
 
 function getLocation(position) {
   let apiKey = "5ed3b347f2ec800oa45b8f8b601dtf4a";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.longitude}&lat=${position.latitude}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
 }
 
